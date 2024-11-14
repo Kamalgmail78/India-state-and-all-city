@@ -5,55 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>State-City Selector</title>
   <style>
-    body {
-      /* font-family:  sans-serif; */
-      margin: 50px;
-      font-weight: 600;
-    }
     select {
-      width: 29rem;
+      width: 100%;
+      max-width: 29rem;
       padding: 8px;
       margin: 10px 0;
       display: block;
-      
     }
     label {
       display: block;
       margin-top: 20px;
     }
-  .card {
-  box-shadow: 1px 5px 8px 0 rgba(0,0,0,0.2);
-  width: 40%;
-  margin-left: 240px;
-  background-image: linear-gradient(to right, rgba(26, 26, 172, 0.608) , rgba(0, 128, 0, 0.796));
-  border-radius: 4px;
+    .card {
+      box-shadow: 1px 5px 8px 0 rgba(0,0,0,0.2);
+      width: 39%;
+      margin: auto;
+      background-image: linear-gradient(to right, rgba(26, 26, 172, 0.608), rgba(0, 128, 0, 0.796));
+      border-radius: 4px;
+    }
+    .state {
+      color: white;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 30px;
+    }
+    .container {
+      padding: 2px 16px;
+      padding-bottom: 18px;
+    }
+    select {
+      border: 1px solid rgba(203, 198, 198, 0.358);
+      border-radius: 5px;
+    }
+    .city {
+      color: white;
+      font-family: Tahoma, Verdana, sans-serif;
+    }
 
-}
-.state {
-   color: white;
-   text-align: center;
-   font-family: Tahoma, Verdana, sans-serif;
-}
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+        margin: 20px auto;
+      }
+      .state {
+        font-size: 24px;
+      }
+    }
 
-.container {
-  padding: 2px 16px;
-  padding-bottom: 18px;
-}
-select{
-    border: 1px solid rgba(203, 198, 198, 0.358);
-    border-radius: 5px;
-}
-.city{
-  color: white;
-  font-family: Tahoma, Verdana, sans-serif;
-}
+    @media (max-width: 480px) {
+      body {
+        margin: 20px;
+      }
+      .state {
+        font-size: 20px;
+      }
+      label, select {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
     <div class="card">
     <div class="container">
-  <h2 class="state">Select State and City</h2>
-
+  <h2 class="state">India State and Districts</h2>
+   <!-- <p class="state" style="font-size: 30px; margin-bottom: 12px;">Select a State View</p> -->
   <label for="state" class="city">State:</label>
   <select id="state" onchange="updateCities()">
     <option value="name">Select State</option>
