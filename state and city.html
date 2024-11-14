@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State-City Selector</title>
+  <style>
+    body {
+      /* font-family:  sans-serif; */
+      margin: 50px;
+      font-weight: 600;
+    }
+    select {
+      width: 29rem;
+      padding: 8px;
+      margin: 10px 0;
+      display: block;
+      
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+    }
+  .card {
+  box-shadow: 1px 5px 8px 0 rgba(0,0,0,0.2);
+  width: 40%;
+  margin-left: 240px;
+  background-image: linear-gradient(to right, rgba(26, 26, 172, 0.608) , rgba(0, 128, 0, 0.796));
+  border-radius: 4px;
+
+}
+.state {
+   color: white;
+   text-align: center;
+   font-family: Tahoma, Verdana, sans-serif;
+}
+
+.container {
+  padding: 2px 16px;
+  padding-bottom: 18px;
+}
+select{
+    border: 1px solid rgba(203, 198, 198, 0.358);
+    border-radius: 5px;
+}
+.city{
+  color: white;
+  font-family: Tahoma, Verdana, sans-serif;
+}
+  </style>
+</head>
+<body>
+    <div class="card">
+    <div class="container">
+  <h2 class="state">Select State and City</h2>
+
+  <label for="state" class="city">State:</label>
+  <select id="state" onchange="updateCities()">
+    <option value="name">Select State</option>
+  </select>
+
+  <label for="city" class="city">City:</label>
+  <select id="city">
+    <option value="name">Select City</option>
+  </select>
+</div>
+
+</div>
+</div>
+ 
+<script>
+   
+  let stateCityData;
+
+   // Function state dropdown
+   function populateStates() {
+     const stateSelect = document.getElementById('state');
+     
+     fetch("http://localhost:3000/data")
+   .then(response => response.json())
+   .then(data => {console.log(data)
+
+     Object.keys(data).forEach(state => {
+       stateCityData = data;
+       let option = document.createElement('option');
+       option.value = state;
+       option.textContent = state;
+       stateSelect.appendChild(option);
+     });
+   })
+   .catch(error => console.error('Error:', error));      
+   }
+   
+   //  selected state
+     function updateCities() {
+     let citySelect = document.getElementById('city');
+     let stateSelect = document.getElementById('state');
+     let selectedState = stateSelect.value;
+
+     // Clear previous city options
+     citySelect.innerHTML = '<option value="name">Select City</option>';
+
+     if (selectedState) {
+       stateCityData[selectedState].forEach(city => {
+         let option = document.createElement('option');
+         option.value = city;
+         option.textContent = city;
+         citySelect.appendChild(option);
+       });
+     }
+   }
+
+   // Initialize the state dropdown on page load
+   window.onload = populateStates;
+ </script>
+</body>
+</html>
+
