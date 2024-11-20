@@ -18,10 +18,11 @@
     }
     .card {
       box-shadow: 1px 5px 8px 0 rgba(0,0,0,0.2);
-      width: 39%;
+      width: 37%;
       margin: auto;
-      background-image: linear-gradient(to right, rgba(26, 26, 172, 0.608), rgba(0, 128, 0, 0.796));
-      border-radius: 4px;
+      background-image: linear-gradient(to right, rgba(28, 28, 188, 0.678), rgba(0, 128, 0, 0.796));
+      border-radius: 5px;
+
     }
     .state {
       color: white;
@@ -39,7 +40,7 @@
     }
     .city {
       color: white;
-      font-family: Tahoma, Verdana, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     /* Responsive Styles */
@@ -59,6 +60,7 @@
       }
       .state {
         font-size: 20px;
+        
       }
       label, select {
         width: 100%;
@@ -88,7 +90,6 @@
 <script>
    
   let stateCityData;
-
    // Function state dropdown
    function populateStates() {
      const stateSelect = document.getElementById('state');
