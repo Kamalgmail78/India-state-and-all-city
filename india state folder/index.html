@@ -9,7 +9,7 @@
                 font-family: Arial, sans-serif;
             }
             .container {
-                width: 80%;
+                width: 60%;
                 margin: auto;
                 text-align: center;
             }
@@ -148,6 +148,7 @@
             function populateDistricts() {
                 const selectedStateName =
                     document.getElementById("stateSelect").value;
+                    document.getElementById("dataCard").style.display = "none";
                 const stateData = indiaData.find(
                     (state) => state.state === selectedStateName
                 );
